@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>prediction page</title>
+<style type="text/css">
+body{
+  background-image:url("form.jpg");
+  background-size: cover;
+}
+h1{
+color: white;
+text-align:center;
+font-family:Times;
+font-style:oblique;
+}
+
+.style{
+ padding: 12px 15px;
+  text-align: center;
+ display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<h1><u>Food Demand Forecasting</u></h1>
+
+<form action="{{url_for('/predict')}}" method="POST">
+<p style="color:white;text-align:center;font-family:times;font-family:cursive; font-size:20px;">
+<label>homepage featured:</label>
+<select name="a" class="style">
+<option value="yes">yes</option>
+<option value="no">no </option> 
+</select>
+<br> <br>
+
+
+
+<label>Emailer for promotion:</label>
+<select name="b" class="style">
+<option value="yes">yes</option>
+<option value="no">no </option> 
+</select>
+<br> <br>
+
+
+<label>Enter the area of operation (km^2)</div></label>
+<input type="number" name="op-name" class="style"> 
+<br><br>
+
+
+<label>Select the cuisine:</label>
+<select name="c" class="style">
+<option value="thai">Thai</option>
+<option value="Indian">Indian</option> 
+<option value="Italian">Italian</option>
+<option value="continental">continental</option>
+</select>
+<br> <br>
+
+
+<label>Enter city code:</label>
+<input type="number" name="city-code" class="style">
+<br> <br>
+
+
+<label>Enter region code:</label>
+<input type="number" name="region-code" class="style">
+<br> <br>
+
+
+
+
+<label>Category</label>
+<select name="e" class="style">
+<option value="Beverages">Beverages</option>
+<option value="Biryani">Biryani</option>
+<option value="Desert">Desert</option>
+<option value="Extras">Extras</option>
+<option value="Fish">Fish</option>
+<option value="Pasta">Pasta</option>
+<option value="Pizza">Pizza</option>
+<option value="Rice Bowl">Rice Bowl</option>
+<option value="Salad">Salad</option>
+<option value="Sandwich">Sandwich</option>
+<option value="Soup">Soup</option>
+<option value="Seafood">Seafood</option>
+<option value="Starters">Starters</option>
+<option value="Other">Other Snacks</option>
+</select>
+
+
+<p style="text-align:center;">
+<button type="button" class="button"> Predict </button>
+</p>
+<br>
+<div style="text-align:center">
+<output name="num of orders" style="color:white;font-family:times;font-family:cursive; font-size:20px;">Num of Orders: </output>
+{{prediction_text}}
+</div>
+</p>
+</form>
+
+</body>
+</html>
